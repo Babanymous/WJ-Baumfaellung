@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | WJ-Baumfällung</title>
+    <meta name="description" content="Impressum der WJ-Baumfällung">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Specific adjustments for subpages */
+        body { 
+            padding-top: var(--nav-height); 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        section {
+            flex: 1;
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .legal-content h1 {
+            color: var(--color-2);
+            margin-bottom: 30px;
+        }
+        .legal-content h3 {
+            color: var(--color-2);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .legal-content p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="Logo.svg" alt="WJ-Baumfällung Logo" class="logo">
+                <span class="logo-text">WJ-Baumfällung</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#home">Startseite</a></li>
+                <li><a href="index.html#about">Über uns</a></li>
+                <li><a href="index.html#services">Leistungen</a></li>
+                <li><a href="index.html#gallery">Galerie</a></li>
+                <li><a href="index.html#contact" class="btn-nav">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="legal-content">
+                <h1>Impressum</h1>
+
+                <p>
+                    <strong>WJ-Baumfällung</strong><br>
+                    Willi Wintgens<br>
+                    Krickelsberg 23<br>
+                    52477 Alsdorf<br><br>
+                    Telefon / WhatsApp: 0152 22618107<br>
+                    E-Mail: willi.wintgens@freenet.de
+                </p>
+                
+                <h3>Steuer-ID</h3>
+                <p>Steuer-ID-Nr. 43 895 167 23</p>
+
+                <h3>Berufsbezeichnung</h3>
+                <p>Garten‑ und Landschaftsbauer (verliehen in Deutschland)</p>
+
+                <h3>Zuständige Aufsichtsbehörde</h3>
+                <p>
+                    Gewerbeamt Aachen<br>
+                    Kreishaus, 52062 Aachen
+                </p>
+
+                <h3>Berufshaftpflichtversicherung</h3>
+                <p>
+                    Provinzial Versicherung AG <br>
+                    Versicherungsnummer: V6823419<br>
+                    Geltungsbereich: Deutschland
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; <span id="year"></span> WJ-Baumfällung. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

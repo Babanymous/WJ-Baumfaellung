@@ -1,0 +1,55 @@
+name: Update Gallery Images
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'Baumfaellung/**'
+      - 'Hecken/**'
+      - 'Zaun/**'
+
+jobs:
+  update-images:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate images.js
+        run: |
+          # Function to generate a JS array from a folder
+          generate_array() {
+            local folder="$1"
+            local varname="$2"
+            echo "const ${varname} = [" >> images.js
+            first=true
+            if [ -d "$folder" ]; then
+              for img in $(ls -1 "$folder"/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF} 2>/dev/null | sort); do
+                basename=$(basename "$img")
+                if [ "$first" = true ]; then
+                  echo "  \"$basename\"" >> images.js
+                  first=false
+                else
+                  echo ", \"$basename\"" >> images.js
+                fi
+              done
+            fi
+            echo "];" >> images.js
+          }
+
+          # Clear and regenerate
+          > images.js
+          generate_array "Baumfaellung" "imagesBaumfaellung"
+          generate_array "Hecken" "imagesHecken"
+          generate_array "Zaun" "imagesZaun"
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add images.js
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-update images.js from category folders" && git push)
