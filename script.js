@@ -183,34 +183,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Cookie-Banner Logik
     const cookieBanner = document.getElementById('cookie-banner');
-    const cookieOverlay = document.getElementById('cookie-overlay');
     const acceptCookiesBtn = document.getElementById('accept-cookies');
     
     if (cookieBanner && acceptCookiesBtn) {
         // Prüfen, ob Cookies bereits akzeptiert wurden
         if (!localStorage.getItem('cookiesAccepted')) {
             setTimeout(() => {
-                if (cookieOverlay) {
-                    cookieOverlay.style.display = 'block';
-                    // Trigger reflow für die Transition
-                    void cookieOverlay.offsetWidth;
-                    cookieOverlay.classList.add('show');
-                }
                 cookieBanner.classList.add('show');
-                document.body.style.overflow = 'hidden'; // Scrollen verhindern
-            }, 500); // Nach 0.5 Sekunden einblenden
+            }, 1000); // Nach 1 Sekunde einblenden
         }
         
         acceptCookiesBtn.addEventListener('click', () => {
             localStorage.setItem('cookiesAccepted', 'true');
             cookieBanner.classList.remove('show');
-            if (cookieOverlay) {
-                cookieOverlay.classList.remove('show');
-                setTimeout(() => {
-                    cookieOverlay.style.display = 'none';
-                }, 500); // Warten bis die Transition beendet ist
-            }
-            document.body.style.overflow = ''; // Scrollen wieder erlauben
         });
     }
 

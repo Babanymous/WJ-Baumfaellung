@@ -1005,54 +1005,32 @@ img {
 }
 
 /* ---------- Cookie Banner ---------- */
-.cookie-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(24, 40, 30, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9998;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.cookie-overlay.show {
-    display: block;
-    opacity: 1;
-}
-
 .cookie-banner {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    width: 90%;
-    max-width: 500px;
-    background: #ffffff;
-    color: var(--text-main);
-    padding: 40px;
-    border-radius: var(--radius-md);
+    bottom: -150px;
+    left: 0;
+    width: 100%;
+    background: rgba(24, 40, 30, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: white;
+    padding: 20px 0;
     z-index: 9999;
-    box-shadow: var(--shadow-lg);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-    opacity: 0;
-    pointer-events: none;
-    text-align: center;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+    transition: bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .cookie-banner.show {
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    pointer-events: all;
+    bottom: 0;
 }
 
 .cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
@@ -1061,7 +1039,7 @@ img {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-main);
+    color: rgba(255,255,255,0.9);
 }
 
 .cookie-content a {
@@ -1072,18 +1050,12 @@ img {
 }
 
 .cookie-content a:hover {
-    color: var(--color-2);
-}
-
-.cookie-buttons {
-    margin-top: 10px;
-    width: 100%;
+    color: white;
 }
 
 .cookie-buttons .btn-sm {
-    width: 100%;
-    padding: 14px 28px;
-    font-size: 1rem;
+    padding: 12px 28px;
+    font-size: 0.95rem;
     white-space: nowrap;
 }
 
