@@ -1007,7 +1007,7 @@ img {
 /* ---------- Cookie Banner ---------- */
 .cookie-banner {
     position: fixed;
-    bottom: -150px;
+    bottom: 0;
     left: 0;
     width: 100%;
     background: rgba(24, 40, 30, 0.98);
@@ -1017,12 +1017,13 @@ img {
     padding: 20px 0;
     z-index: 9999;
     box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
-    transition: bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .cookie-banner.show {
-    bottom: 0;
+    transform: translateY(0);
 }
 
 .cookie-content {
