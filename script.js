@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = document.getElementById('form-body').value;
             
             let mailBody = `Nachricht von (Antwort-E-Mail): ${email}\n\n${body}`;
-            const mailtoLink = `info@wj-baumfaellung.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+            const mailtoLink = `mailto:info@wj-baumfaellung.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
             
             window.location.href = mailtoLink;
         });
