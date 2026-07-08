@@ -1,4 +1,5 @@
 const imagesBaumfaellung = [
+  "IMG-20260708-WA0007.jpg",
   "WhatsApp Image 2026-07-01 at 3.52.52 PM.jpeg",
   "WhatsApp Image 2026-07-01 at 3.52.57 PM (1).jpeg",
   "WhatsApp Image 2026-07-01 at 3.52.57 PM (10).jpeg",
